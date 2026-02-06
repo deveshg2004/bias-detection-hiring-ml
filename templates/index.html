@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bias Detection in Hiring Documents</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Upload Resume or Job Description</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="pdf_file" accept=".pdf" required>
+        <button type="submit">Upload & Analyze</button>
+    </form>
+    {% if result %}
+        <h3>Result: {{ result }}</h3>
+    {% endif %}
+    {% if found_words %}
+        <h4>Biased Words & Neutral Alternatives</h4>
+        <ul>
+            {% for word, data in found_words.items() %}
+                <li>
+                    <b>{{ word }}</b> → {{ data[0] }}
+                    <span style="color: gray;">({{ data[1] }} severity)</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if extracted_text %}
+        <h4>Extracted Text (Preview)</h4>
+        <textarea readonly>{{ extracted_text[:1000] }}</textarea>
+    {% endif %}
+</div>
+</body>
+</html>
