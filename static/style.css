@@ -1,164 +1,41 @@
 body {
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    background: lightgray;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
 }
 
-/* Header */
-.header {
-    background-color: darkslateblue;
-    color: white;
-    padding: 14px;
-    text-align: center;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.header p {
-    margin-top: 4px;
-    font-size: 13px;
-    opacity: 0.9;
-}
-
-/* Main container */
 .container {
-    width: 85%;
-    margin: 15px auto;
-}
-
-/* Upload card */
-.upload-card {
     background: white;
-    padding: 16px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+    width: 70%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 8px;
 }
 
-.upload-card h2 {
-    margin: 0;
-    font-size: 18px;
-    color: darkslategray;
-}
-
-.subtitle {
-    color: dimgray;
-    font-size: 13px;
-    margin-bottom: 10px;
+textarea {
+    width: 100%;
+    height: 160px;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 input[type="file"] {
-    font-size: 13px;
+    margin-top: 10px;
 }
 
 button {
-    margin-top: 10px;
-    padding: 8px 26px;
-    background-color: royalblue;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #007BFF;
     color: white;
     border: none;
-    border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
 }
 
 button:hover {
-    background-color: mediumblue;
+    background-color: #0056b3;
 }
 
-/* Result box */
-.result-box {
-    margin: 15px 0;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.result-box.biased {
-    background-color: mistyrose;
-    color: darkred;
-}
-
-.result-text {
-    font-size: 13px;
-    margin-top: 4px;
-}
-
-/* Sections */
-.section {
-    margin-top: 15px;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-}
-
-.section h3 {
-    margin-top: 0;
-    font-size: 17px;
-    color: darkslategray;
-}
-
-/* Table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-table th, table td {
-    border: 1px solid lightgray;
-    padding: 6px;
-    font-size: 13px;
-    text-align: center;
-}
-
-table th {
-    background-color: whitesmoke;
-    font-weight: bold;
-}
-
-/* Severity badges */
-.severity {
-    padding: 4px 10px;
-    border-radius: 14px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.severity.high {
-    background-color: firebrick;
-    color: white;
-}
-
-.severity.low {
-    background-color: darkorange;
-    color: white;
-}
-
-/* Text area */
-textarea {
-    width: 100%;
-    height: 110px;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid lightgray;
-    resize: none;
-    font-family: Consolas, monospace;
-    background-color: whitesmoke;
-    font-size: 12px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin: 15px 0;
-    color: dimgray;
-    font-size: 12px;
+h3 {
+    color: green;
 }

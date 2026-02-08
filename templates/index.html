@@ -1,82 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Recruitment Bias Detection System</title>
+    <title>Bias Detection in Hiring Documents</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-
-<header class="header">
-    <h1>Recruitment Bias Detection System</h1>
-    <p>Ensuring fairness in recruitment using bias detection</p>
-</header>
-
 <div class="container">
+    <h2>Upload Resume or Job Description</h2>
 
-    <div class="upload-card">
-        <h2>Upload Document</h2>
-        <p class="subtitle">Upload a Resume or Job Description (PDF format)</p>
-
-        <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="pdf_file" accept=".pdf" required>
-            <button type="submit">Analyze Document</button>
-        </form>
-    </div>
-
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="pdf_file" accept=".pdf" required>
+        <button type="submit">Upload & Analyze</button>
+    </form>
     {% if result %}
-        <div class="result-box {{ result|lower }}">
-            <h2>{{ result }}</h2>
-            <p>
-                {% if result == "Biased" %}
-                    Bias-related terms were detected in the document.
-                {% else %}
-                    No significant bias detected in the document.
-                {% endif %}
-            </p>
-        </div>
+        <h3>Result: {{ result }}</h3>
     {% endif %}
-
     {% if found_words %}
-        <div class="section">
-            <h3>Detected Biased Words</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Biased Word</th>
-                        <th>Neutral Alternative</th>
-                        <th>Severity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for word, data in found_words.items() %}
-                    <tr>
-                        <td>{{ word }}</td>
-                        <td>{{ data[0] }}</td>
-                        <td>
-                            <span class="severity {{ data[1] }}">
-                                {{ data[1]|capitalize }}
-                            </span>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
+        <h4>Biased Words & Neutral Alternatives</h4>
+        <ul>
+            {% for word, data in found_words.items() %}
+                <li>
+                    <b>{{ word }}</b> → {{ data[0] }}
+                    <span style="color: gray;">({{ data[1] }} severity)</span>
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
-
     {% if extracted_text %}
-        <div class="section">
-            <h3>Extracted Text</h3>
-            <textarea readonly>{{ extracted_text[:1500] }}</textarea>
-        </div>
+        <h4>Extracted Text (Preview)</h4>
+        <textarea readonly>{{ extracted_text[:1000] }}</textarea>
     {% endif %}
-
 </div>
-
-<footer>
-    <p>Recruitment Bias Detection System</p>
-</footer>
-
 </body>
 </html>
